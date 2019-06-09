@@ -71,45 +71,19 @@ namespace ConsoleApp1
         {
             int resultLength = arrA.Length + arrB.Length;
             int[] result = new int[resultLength];
-            int j = 0;
-            int firstCount;
-            int secondCount;
-
-            if (arrA.Length < arrB.Length)
+            int aindex = 0, bindex = 0;
+            for (int i=0; i<resultLength; i++)
             {
-                firstCount = arrA.Length;
-                secondCount = arrB.Length;
-            }
-            else
-            {
-                firstCount = arrB.Length;
-                secondCount = arrA.Length;
-            }
-
-            for (int i = 0; i < firstCount; i++)
-            {
-                 
-                if (arrA[i] < arrB[i])
+                if(bindex>=arrB.Length || aindex < arrA.Length && arrA[aindex]<arrB[bindex])
                 {
-                    result[j] = arrA[i];
-                    j++;
-                    result[j] = arrB[i];
+                    result[i] = arrA[aindex];
+                    aindex++;
                 }
                 else
                 {
-                    result[j] = arrB[i];
-                    j++;
-                    result[j] = arrA[i];
+                    result[i] = arrB[bindex];
+                    bindex++;
                 }
-                j++;
-            }
-            for(int i =firstCount; i<secondCount; i++)
-            {
-                if (secondCount == arrA.Length)
-                    result[j] = arrA[i];
-                else
-                    result[j] = arrB[i];
-                j++;
             }
             return result;
         }
