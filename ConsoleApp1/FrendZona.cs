@@ -11,7 +11,7 @@ namespace ConsoleApp1
         public static void Main(string[] args)
         {
             int[] numbers = { 1,3,2,4,5,7,2,1,3,10,22,3,4,7};
-            sort(numbers);
+            Sort(numbers);
             for (int i = 0; i < numbers.Length; i++)
             {
                 Console.Write(numbers[i] + ", ");
@@ -22,25 +22,26 @@ namespace ConsoleApp1
         /**
          *   Sorting the array
          */
-        public static void sort(int[] array)
+        public static void Sort(int[] array)
         {
-            int c,f;
             for (int j = 0; j < array.Length; j++)
             {
-                f = 0;
+                bool hasSwap = false;
                 for (int i = 0; i < array.Length - 1 - j; i++)
                 {
                     if (array[i] > array[i + 1])
                     {
-                        c = array[i];
+                        int c = array[i];
                         array[i] = array[i + 1];
                         array[i + 1] = c;
-                        f = 1;
+                        hasSwap = true;
                     }
                 }
-
-                if (f == 0)
-                    return; 
+                if (!hasSwap)
+                {
+                    break;
+                }
+                    
             }
         }
     }
