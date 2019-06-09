@@ -12,6 +12,7 @@ namespace ConsoleApp1
         {
             int[] numbers = { 1,3,2,4,5,7,2,1,3,10,22,3,4,7};
             Sort(numbers);
+            Shuffle(numbers);
             for (int i = 0; i < numbers.Length; i++)
             {
                 Console.Write(numbers[i] + ", ");
@@ -42,6 +43,20 @@ namespace ConsoleApp1
                     break;
                 }
                     
+            }
+        }
+
+        public static void Shuffle(int[] array)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                int indexFrom = rnd.Next(0, array.Length);
+                int indexTo = rnd.Next(0, array.Length);
+
+                int c = array[indexTo];
+                array[indexTo] = array[indexFrom];
+                array[indexFrom] = c;
             }
         }
     }
