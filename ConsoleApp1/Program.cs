@@ -11,7 +11,7 @@ namespace ConsoleApp1
         public const int LINE_LENGTH = 120;
         public const int SEPARATOR_LEN = 4;
 
-        static void Main(string[] args)
+        static void Main1(string[] args) // disable entry point
         {
             for (int i = 0; i < 2; i++)
             {
