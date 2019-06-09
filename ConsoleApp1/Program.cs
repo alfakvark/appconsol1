@@ -8,31 +8,38 @@ namespace ConsoleApp1
 {
     class Program
     {
+        public const int LINE_LENGTH = 120;
+        public const int SEPARATOR_LEN = 4;
+
         static void Main(string[] args)
         {
-            int a,c;
-
-
-            Console.WriteLine("Insert the number");
-            a = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
-            
-            for(int i=2; i<=a; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for(int j=2; j<=a; j++)
-                {
-                    c = i * j;
-                    Console.Write(j+"*"+i+"="+c+"\t");
-
-                }
-                Console.WriteLine();
-
+                int n = Convert.ToInt32(Console.ReadLine());
+                printTable(n);
             }
-            Console.WriteLine();
-            Console.WriteLine("ВАШЕ ЧИСЛО, "+a+"!");
-            Console.ReadKey();
-            Console.WriteLine("GITHUB privaet");
+            Console.WriteLine("The end is near!");
         }
 
+        public static void printTable(int n)
+        {
+            int maxlen = (n + " * " + n + " = " + n * n).Length;
+            int maxUr = (LINE_LENGTH - maxlen) / (maxlen + SEPARATOR_LEN);
+            for (int lastJ = 1; lastJ <= n; lastJ += maxUr)
+            {
+                for (int i = 1; i <= n; i++)
+                {
+                    int sep = 0;
+                    for (int j = lastJ; sep < maxUr && j <= n; j++, sep++)
+                    {
+                        string ar = j + " * " + i + " = " + i * j;
+                        Console.Write(ar + '\t');
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+                // comment
+            }
+        }
     }
 }
