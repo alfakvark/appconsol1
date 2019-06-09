@@ -27,7 +27,7 @@ namespace ConsoleApp1
             int c;
             for (int j = 0; j < array.Length; j++)
             {
-                for (int i = 0; i < array.Length-1; i++)
+                for (int i = 0; i < array.Length - 1 - j; i++)
                 {
                     if (array[i] > array[i + 1])
                     {
