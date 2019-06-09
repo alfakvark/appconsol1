@@ -69,7 +69,21 @@ namespace ConsoleApp1
          */
         public static int[] Merge(int[] arrA, int[] arrB)
         {
-            return new int[0] { };
+            int c = arrA.Length + arrB.Length;
+            int[] arrC = new int[c];
+            int j = 0;
+            for (int i = 0; i < arrA.Length; i++)
+            {
+                arrC[j] = arrA[i];
+                j++;
+            }
+            for (int i = 0; i < arrB.Length; i++)
+            {
+                arrC[j] = arrB[i];
+                j++;
+            }
+            Sort(arrC);
+            return arrC;
         }
     }
 
