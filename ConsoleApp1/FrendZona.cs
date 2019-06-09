@@ -24,9 +24,10 @@ namespace ConsoleApp1
          */
         public static void sort(int[] array)
         {
-            int c;
+            int c,f;
             for (int j = 0; j < array.Length; j++)
             {
+                f = 0;
                 for (int i = 0; i < array.Length - 1 - j; i++)
                 {
                     if (array[i] > array[i + 1])
@@ -34,8 +35,12 @@ namespace ConsoleApp1
                         c = array[i];
                         array[i] = array[i + 1];
                         array[i + 1] = c;
+                        f = 1;
                     }
                 }
+
+                if (f == 0)
+                    return; 
             }
         }
     }
